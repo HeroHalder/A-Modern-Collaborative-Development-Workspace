@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Hero Workspace</title>
+
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
+    <link rel="stylesheet"
+          href="assets/css/auth.css">
+
+    <link rel="stylesheet"
+          href="assets/css/responsive.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        <span>H</span>
+        Hero Workspace
+    </a>
+
+    <button id="themeToggle"
+            class="theme-btn"
+            type="button">
+        ☾
+    </button>
+
+</header>
+
+
+<main class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            <span>H</span>
+        </div>
+
+        <h1>Welcome Back</h1>
+
+        <p>
+            Sign in to continue to your workspace.
+        </p>
+
+
+        <form id="loginForm">
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="you@example.com"
+                required
+            >
+
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+
+            <div class="form-options">
+
+                <label class="remember">
+                    <input
+                        type="checkbox"
+                        id="rememberMe"
+                    >
+
+                    Remember me
+
+                </label>
+
+                <a href="#">
+                    Forgot password?
+                </a>
+
+            </div>
+
+
+            <!-- Login Message -->
+
+            <p id="loginMessage"
+               style="margin-top:15px; font-size:14px;">
+            </p>
+
+
+            <button
+                type="submit"
+                class="auth-btn">
+
+                Sign In
+
+            </button>
+
+        </form>
+
+
+        <div class="divider">
+            <span>OR</span>
+        </div>
+
+
+        <button
+            type="button"
+            class="social-btn">
+
+            Continue with GitHub
+
+        </button>
+
+
+        <p class="auth-footer">
+
+            Don't have an account?
+
+            <a href="register.html">
+                Create one
+            </a>
+
+        </p>
+
+    </div>
+
+</main>
+
+
+<script src="assets/js/theme.js"></script>
+
+
+<script>
+
+const loginForm =
+    document.getElementById("loginForm");
+
+const loginMessage =
+    document.getElementById("loginMessage");
+
+
+loginForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document.getElementById("email")
+            .value
+            .trim();
+
+
+        const password =
+            document.getElementById("password")
+            .value;
+
+
+        loginMessage.textContent =
+            "Signing in...";
+
+
+        try {
+
+            const response = await fetch(
+                "../php/auth/login.php",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    credentials: "include",
+
+                    body: JSON.stringify({
+
+                        email: email,
+                        password: password
+
+                    })
+                }
+            );
+
+
+            const result =
+                await response.json();
+
+
+            if (result.success) {
+
+                loginMessage.textContent =
+                    "Login successful!";
+
+
+                /*
+                 * Save basic user information
+                 * for frontend use.
+                 */
+
+                sessionStorage.setItem(
+                    "user",
+                    JSON.stringify(result.data)
+                );
+
+
+                /*
+                 * Redirect to Dashboard
+                 */
+
+                setTimeout(function() {
+
+                    window.location.href =
+                        "dashboard.html";
+
+                }, 800);
+
+
+            } else {
+
+                loginMessage.textContent =
+                    result.message;
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            loginMessage.textContent =
+                "Unable to connect to server.";
+
+        }
+
+    }
+);
+
+</script>
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/auth.js"></script>
+</body>
+</html>

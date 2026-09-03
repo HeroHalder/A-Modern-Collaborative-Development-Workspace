@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard | Hero Workspace</title>
+
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
+
+    <!-- Dashboard CSS -->
+    <link
+        rel="stylesheet"
+        href="assets/css/dashboard.css"
+    >
+
+    <!-- Responsive CSS -->
+    <link
+        rel="stylesheet"
+        href="assets/css/responsive.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="dashboard-nav">
+
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+
+        <span>H</span>
+
+        Hero Workspace
+
+    </a>
+
+
+    <div class="nav-actions">
+
+
+        <button
+            id="themeToggle"
+            class="theme-btn"
+            type="button"
+        >
+            ☾
+        </button>
+
+
+        <a
+            href="profile.html"
+            class="user-mini"
+        >
+
+            <span id="userAvatar">
+                H
+            </span>
+
+            <div>
+
+                <strong id="userName">
+                    Hero
+                </strong>
+
+                <small id="userEmail">
+                    Developer
+                </small>
+
+            </div>
+
+        </a>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     DASHBOARD LAYOUT
+========================================================= -->
+
+<div class="dashboard-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-menu">
+
+
+            <a
+                href="dashboard.html"
+                class="sidebar-link active"
+            >
+
+                <span>▦</span>
+
+                Dashboard
+
+            </a>
+
+
+            <a
+                href="workspace.html"
+                class="sidebar-link"
+            >
+
+                <span>⌘</span>
+
+                Workspace
+
+            </a>
+
+
+            <a
+                href="#projects"
+                class="sidebar-link"
+            >
+
+                <span>◈</span>
+
+                Projects
+
+            </a>
+
+
+            <a
+                href="#collaboration"
+                class="sidebar-link"
+            >
+
+                <span>◉</span>
+
+                Collaboration
+
+            </a>
+
+
+            <a
+                href="#history"
+                class="sidebar-link"
+            >
+
+                <span>◷</span>
+
+                History
+
+            </a>
+
+
+        </div>
+
+
+
+        <div class="sidebar-bottom">
+
+
+            <a
+                href="profile.html"
+                class="sidebar-link"
+            >
+
+                <span>◎</span>
+
+                Profile
+
+            </a>
+
+
+            <a
+                href="settings.html"
+                class="sidebar-link"
+            >
+
+                <span>⚙</span>
+
+                Settings
+
+            </a>
+
+
+            <a
+                href="#"
+                id="logoutBtn"
+                class="sidebar-link"
+            >
+
+                <span>↪</span>
+
+                Sign Out
+
+            </a>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             WELCOME
+        ================================================== -->
+
+        <section class="welcome-section">
+
+
+            <div>
+
+
+                <span class="dashboard-label">
+                    DEVELOPER DASHBOARD
+                </span>
+
+
+                <h1>
+
+                    Welcome back,
+                    <span id="welcomeName">
+                        Hero
+                    </span>
+                    👋
+
+                </h1>
+
+
+                <p>
+                    Continue building something amazing today.
+                </p>
+
+
+            </div>
+
+
+            <button
+                type="button"
+                id="createProjectBtn"
+                class="primary-btn"
+            >
+
+                + New Workspace
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon purple">
+                    ⌘
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Total Projects
+                    </span>
+
+
+                    <strong id="projectCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon green">
+                    ▶
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Code Executions
+                    </span>
+
+
+                    <strong>
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon orange">
+                    👥
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Collaborators
+                    </span>
+
+
+                    <strong>
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon blue">
+                    ⚡
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Successful Runs
+                    </span>
+
+
+                    <strong>
+                        0
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECTS
+        ================================================== -->
+
+        <section
+            class="dashboard-section"
+            id="projects"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <h2>
+                        Recent Projects
+                    </h2>
+
+
+                    <p>
+                        Your latest development work
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="newProjectBtn"
+                    class="text-btn"
+                >
+
+                    + New Project
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 IMPORTANT PROJECT CONTAINER
+
+                 dashboard.js will load database projects here.
+            ================================================== -->
+
+            <div
+                id="projectsContainer"
+                class="projects-grid"
+            >
+
+                <div class="project-loading">
+
+                    Loading projects...
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             RECENT ACTIVITY
+        ================================================== -->
+
+        <section
+            class="dashboard-section"
+            id="history"
+        >
+
+
+            <div class="section-heading">
+
+
+                <div>
+
+                    <h2>
+                        Recent Activity
+                    </h2>
+
+
+                    <p>
+                        Latest workspace activities
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="activity-list">
+
+
+                <div class="activity-item">
+
+
+                    <span class="activity-icon green">
+                        ✓
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Welcome to Hero Workspace
+                        </strong>
+
+
+                        <p>
+                            Your development workspace is ready.
+                        </p>
+
+                    </div>
+
+
+                    <time>
+                        Now
+                    </time>
+
+
+                </div>
+
+
+
+                <div class="activity-item">
+
+
+                    <span class="activity-icon purple">
+                        +
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Create your first project
+                        </strong>
+
+
+                        <p>
+                            Start building your next idea.
+                        </p>
+
+                    </div>
+
+
+                    <time>
+                        —
+                    </time>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     CREATE PROJECT MODAL
+========================================================= -->
+
+<div
+    id="createProjectModal"
+    class="project-modal"
+    style="display:none;"
+>
+
+
+    <div class="project-modal-content">
+
+
+        <h2>
+            Create New Project
+        </h2>
+
+
+        <p>
+            Create a new development workspace.
+        </p>
+
+
+
+        <form id="createProjectForm">
+
+
+            <!-- Project Name -->
+
+            <label for="projectName">
+                Project Name
+            </label>
+
+
+            <input
+                type="text"
+                id="projectName"
+                name="name"
+                placeholder="My Awesome Project"
+                maxlength="100"
+                required
+            >
+
+
+
+            <!-- Description -->
+
+            <label for="projectDescription">
+                Description
+            </label>
+
+
+            <textarea
+                id="projectDescription"
+                name="description"
+                placeholder="Describe your project..."
+                rows="4"
+            ></textarea>
+
+
+
+            <!-- Language -->
+
+            <label for="projectLanguage">
+                Language
+            </label>
+
+
+            <select
+                id="projectLanguage"
+                name="language"
+            >
+
+                <option value="javascript">
+                    JavaScript
+                </option>
+
+
+                <option value="python">
+                    Python
+                </option>
+
+
+                <option value="cpp">
+                    C++
+                </option>
+
+
+                <option value="php">
+                    PHP
+                </option>
+
+            </select>
+
+
+
+            <!-- Message -->
+
+            <p id="projectMessage"></p>
+
+
+
+            <!-- Actions -->
+
+            <div class="modal-actions">
+
+
+                <button
+                    type="button"
+                    id="cancelCreateProject"
+                    class="secondary-btn"
+                >
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+
+                    Create Project
+
+                </button>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script
+    src="assets/js/theme.js"
+></script>
+
+
+<script
+    src="assets/js/dashboard.js"
+></script>
+
+
+</body>
+
+</html>

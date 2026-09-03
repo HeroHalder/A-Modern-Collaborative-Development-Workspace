@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | Hero Workspace</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+
+<body>
+
+<header class="dashboard-nav">
+
+    <a href="dashboard.html" class="logo">
+        <span>H</span>
+        Hero Workspace
+    </a>
+
+    <button id="themeToggle" class="theme-btn">
+        ☾
+    </button>
+
+</header>
+
+
+<main class="settings-page">
+
+    <div class="settings-heading">
+
+        <span>ACCOUNT SETTINGS</span>
+
+        <h1>Settings</h1>
+
+        <p>
+            Manage your Hero Workspace preferences.
+        </p>
+
+    </div>
+
+
+    <section class="settings-card">
+
+        <div class="settings-title">
+
+            <h2>Appearance</h2>
+
+            <p>
+                Customize how Hero Workspace looks.
+            </p>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <div>
+                <strong>Dark Mode</strong>
+
+                <small>
+                    Use the dark interface for coding.
+                </small>
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="darkModeToggle"
+                    checked
+                >
+
+                <span></span>
+
+            </label>
+
+        </div>
+
+    </section>
+
+
+    <section class="settings-card">
+
+        <div class="settings-title">
+
+            <h2>Editor</h2>
+
+            <p>
+                Configure your coding environment.
+            </p>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <div>
+                <strong>Font Size</strong>
+
+                <small>
+                    Editor font size
+                </small>
+            </div>
+
+            <select>
+
+                <option>12px</option>
+                <option selected>14px</option>
+                <option>16px</option>
+                <option>18px</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <div>
+                <strong>Auto Save</strong>
+
+                <small>
+                    Automatically save workspace changes.
+                </small>
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    checked
+                >
+
+                <span></span>
+
+            </label>
+
+        </div>
+
+    </section>
+
+
+    <section class="settings-card">
+
+        <div class="settings-title">
+
+            <h2>Notifications</h2>
+
+            <p>
+                Control workspace notifications.
+            </p>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <div>
+                <strong>Collaboration Notifications</strong>
+
+                <small>
+                    Notify when someone joins your workspace.
+                </small>
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    checked
+                >
+
+                <span></span>
+
+            </label>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <div>
+                <strong>Execution Notifications</strong>
+
+                <small>
+                    Show code execution status.
+                </small>
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    checked
+                >
+
+                <span></span>
+
+            </label>
+
+        </div>
+
+    </section>
+
+
+    <button class="primary-btn save-settings">
+        Save Changes
+    </button>
+
+</main>
+
+
+<script src="assets/js/theme.js"></script>
+
+<script>
+
+const darkModeToggle =
+    document.getElementById("darkModeToggle");
+
+if (darkModeToggle) {
+
+    darkModeToggle.addEventListener("change", () => {
+
+        const themeButton =
+            document.getElementById("themeToggle");
+
+        if (themeButton) {
+            themeButton.click();
+        }
+
+    });
+
+}
+
+
+document
+    .querySelector(".save-settings")
+    .addEventListener("click", () => {
+
+        alert(
+            "Settings saved successfully!"
+        );
+
+    });
+
+</script>
+
+</body>
+</html>

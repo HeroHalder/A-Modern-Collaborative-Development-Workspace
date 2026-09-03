@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | Hero Workspace</title>
+
+    <link rel="stylesheet"
+          href="assets/css/style.css">
+
+    <link rel="stylesheet"
+          href="assets/css/auth.css">
+
+    <link rel="stylesheet"
+          href="assets/css/responsive.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        <span>H</span>
+        Hero Workspace
+    </a>
+
+    <button id="themeToggle"
+            class="theme-btn"
+            type="button">
+        ☾
+    </button>
+
+</header>
+
+
+<main class="auth-page">
+
+    <div class="auth-card">
+
+        <div class="auth-logo">
+            <span>H</span>
+        </div>
+
+        <h1>Create Account</h1>
+
+        <p>
+            Start building with Hero Workspace.
+        </p>
+
+
+        <!-- Registration Form -->
+
+        <form id="registerForm">
+
+            <label for="name">
+                Full Name
+            </label>
+
+            <input
+                id="name"
+                type="text"
+                placeholder="Your name"
+                required
+            ></br>
+
+
+            <label for="email">
+                Email
+            </label>
+
+            <input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+            ></br>
+
+
+            <label for="password">
+                Password
+            </label>
+
+            <input
+                id="password"
+                type="password"
+                placeholder="Create a password"
+                minlength="6"
+                required
+            ></br>
+
+
+            <label for="confirmPassword">
+                Confirm Password
+            </label>
+
+            <input
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm password"
+                minlength="6"
+                required
+            >
+
+
+            <!-- Message -->
+
+            <p id="registerMessage"
+               style="margin-top:15px; font-size:14px;">
+            </p>
+
+
+            <button
+                type="submit"
+                class="auth-btn"
+                style="margin-top:25px;">
+
+                Create Account
+
+            </button>
+
+        </form>
+
+
+        <p class="auth-footer">
+
+            Already have an account?
+
+            <a href="login.html">
+                Sign In
+            </a>
+
+        </p>
+
+    </div>
+
+</main>
+
+
+<script src="assets/js/theme.js"></script>
+
+<script>
+
+const registerForm = document.getElementById("registerForm");
+
+const message = document.getElementById("registerMessage");
+
+
+registerForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const password =
+        document.getElementById("password").value;
+
+    const confirmPassword =
+        document.getElementById("confirmPassword").value;
+
+
+    // Password confirmation
+
+    if (password !== confirmPassword) {
+
+        message.textContent =
+            "Passwords do not match.";
+
+        return;
+    }
+
+
+    if (password.length < 6) {
+
+        message.textContent =
+            "Password must be at least 6 characters.";
+
+        return;
+    }
+
+
+    message.textContent =
+        "Creating your account...";
+
+
+    try {
+
+        const response = await fetch(
+            "../php/auth/register.php",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    name: name,
+                    email: email,
+                    password: password
+
+                })
+            }
+        );
+
+
+        const result =
+            await response.json();
+
+
+        if (result.success) {
+
+            message.textContent =
+                "Account created successfully!";
+
+            registerForm.reset();
+
+
+            setTimeout(function() {
+
+                window.location.href =
+                    "login.html";
+
+            }, 1200);
+
+        } else {
+
+            message.textContent =
+                result.message;
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        message.textContent =
+            "Unable to connect to server.";
+
+    }
+
+});
+
+</script>
+
+<script src="assets/js/theme.js"></script>
+<script src="assets/js/auth.js"></script>
+</body>
+</html>

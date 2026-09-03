@@ -1,0 +1,130 @@
+.auth-page {
+    min-height: calc(100vh - 72px);
+    display: grid;
+    place-items: center;
+    padding: 50px 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    padding: 40px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 16px;
+}
+
+.auth-logo {
+    display: grid;
+    place-items: center;
+    margin-bottom: 20px;
+}
+
+.auth-logo span {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--primary);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.auth-card h1 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.auth-card > p {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 30px;
+}
+
+#loginForm label {
+    display: block;
+    margin: 17px 0 7px;
+    font-size: 14px;
+}
+
+#loginForm input[type="email"],
+#loginForm input[type="password"] {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    border-radius: 8px;
+    outline: none;
+}
+
+#loginForm input:focus {
+    border-color: var(--primary);
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 17px 0;
+    font-size: 13px;
+}
+
+.remember {
+    display: flex !important;
+    gap: 7px;
+    align-items: center;
+    margin: 0 !important;
+}
+
+.form-options a {
+    color: var(--primary);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 25px 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: var(--border);
+}
+
+.social-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.auth-footer {
+    margin-top: 25px !important;
+    margin-bottom: 0 !important;
+}
+
+.auth-footer a {
+    color: var(--primary);
+}
