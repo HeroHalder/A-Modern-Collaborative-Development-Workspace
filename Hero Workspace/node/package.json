@@ -1,0 +1,14 @@
+{
+  "name": "hero-workspace-execution-engine",
+  "version": "1.0.0",
+  "description": "Hero Workspace code execution engine",
+  "main": "execution/server.js",
+  "scripts": {
+    "start": "node execution/server.js",
+    "dev": "node execution/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  }
+}
